@@ -21,7 +21,7 @@ module ApplicationHelperPatch
     # overload textilizable to link CI links automatically
     def textilizable_with_ci_linking(*args)
       text = textilizable_without_ci_linking(*args)
-      return text.gsub(/([^:\"])https:\/\/ci.arvados.org\/view\/([a-zA-Z0-9\-]+)\/job\/([a-zA-Z0-9\-]+)\/([0-9]+)\/(\W|$)/,'<a href="https://ci.arvados.org/view/\\2/job/\\3/\\4/"><img src="https://ci.arvados.org/buildStatus/icon?job=\\3&#38;build=\\4" alt="" /></a>\\5').html_safe
+      return text.gsub(/([^:\"])https:\/\/ci.arvados.org\/job\/([a-zA-Z0-9\-]+)\/([0-9]+)\/(\W|$)/,'<a href="https://ci.arvados.org/job/\\2/\\3/"><img src="https://ci.arvados.org/buildStatus/icon?job=\\2&#38;build=\\3" alt="" /></a>\\4').gsub(/([^:\"])https:\/\/ci.arvados.org\/view\/([a-zA-Z0-9\-]+)\/job\/([a-zA-Z0-9\-]+)\/([0-9]+)\/(\W|$)/,'<a href="https://ci.arvados.org/view/\\2/job/\\3/\\4/"><img src="https://ci.arvados.org/buildStatus/icon?job=\\3&#38;build=\\4" alt="" /></a>\\5').html_safe
     end
 
   end
