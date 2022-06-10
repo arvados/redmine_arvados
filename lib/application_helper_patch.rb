@@ -6,8 +6,10 @@ module ApplicationHelperPatch
     base.send(:include, InstanceMethods)
 
     base.class_eval do
-      alias_method_chain :textilizable, :uuid_linking
-      alias_method_chain :textilizable, :ci_linking
+      alias_method :textilizable_without_uuid_linking, :textilizable
+      alias_method :textilizable, :textilizable_with_uuid_linking
+      alias_method :textilizable_without_ci_linking, :textilizable
+      alias_method :textilizable, :textilizable_with_ci_linking
     end
   end
 
