@@ -1,5 +1,5 @@
-require 'arvados_hook_listener'
-require 'application_helper_patch'
+require_relative 'lib/arvados_hook_listener'
+require_relative 'lib/application_helper_patch'
 
 Redmine::Plugin.register :redmine_arvados do
   name 'Redmine Arvados plugin'
